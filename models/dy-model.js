@@ -8,10 +8,10 @@ class Model {
     /** json representatio for every model schema once created 
      * No params 
      */
-    jsonSchema() {
-        console.log('typrof this.schema.jsonSchema : ', typeof this.schema.jsonSchema);
-        return typeof this.schema.jsonSchema === 'function' ? this.schema.jsonSchema() : {}
-    } // end of jsonSchema method 
+    // jsonSchema() {
+    //     console.log('typrof this.schema.jsonSchema : ', typeof this.schema.jsonSchema);
+    //     return typeof this.schema.jsonSchema === 'function' ? this.schema.jsonSchema() : {}
+    // } // end of jsonSchema method 
 
 
     /**
