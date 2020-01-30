@@ -25,4 +25,4 @@ describe('categories Model', () => {
       });
   });
 
-});s
+});

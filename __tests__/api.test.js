@@ -6,32 +6,32 @@ const mockRequest = supergoose(server);
 
 describe('categories API', () => {
 
-    it('can get() a categories', () => {
-        let obj = { name: 'bags bags' }
-        return mockRequest.post('/api/v1/categories')
-            .send(obj)
-            .then(data => {
-                return mockRequest.get(`/api/v1/categories`)
-                    .then(record => {
-                        Object.keys(obj).forEach(key => {
-                            expect(record.body[1][key]).toEqual(obj[key]);
-                        });
-                    });
+  it('can get() a categories', () => {
+    let obj = { name: 'bags bags' };
+    return mockRequest.post('/api/v1/categories')
+      .send(obj)
+      .then(data => {
+        return mockRequest.get(`/api/v1/categories`)
+          .then(record => {
+            Object.keys(obj).forEach(key => {
+              expect(record.body[1][key]).toEqual(obj[key]);
             });
-    });
+          });
+      });
+  });
 
 
-    it('can post() a new categories', () => {
-        let obj = { name: 'bags bags' }
-        return mockRequest.post('/api/v1/categories')
-            .send(obj)
-            .then(data => {
-                let record = data.body;
-                Object.keys(obj).forEach(key => {
-                    expect(record[key]).toEqual(obj[key]);
-                });
-            });
-    });
+  it('can post() a new categories', () => {
+    let obj = { name: 'bags bags' };
+    return mockRequest.post('/api/v1/categories')
+      .send(obj)
+      .then(data => {
+        let record = data.body;
+        Object.keys(obj).forEach(key => {
+          expect(record[key]).toEqual(obj[key]);
+        });
+      });
+  });
 
 
 
