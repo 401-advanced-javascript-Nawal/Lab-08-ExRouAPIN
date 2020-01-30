@@ -3,8 +3,8 @@
 ### Author: Nawal Suliman 
 
 ### Links and Resources
-- [submission PR]()
-- [ci/cd]()
+- [submission PR](https://github.com/401-advanced-javascript-Nawal/Lab-08-ExRouAPIN/pull/1)
+- [ci/cd](https://github.com/401-advanced-javascript-Nawal/Lab-08-ExRouAPIN/actions?query=workflow%3A%22Node+CI%22)
 
 ### Setup
 - install the needed Dependencies JEST ESLINT EXPRESS CORS MORGAN DOTENV MONGOOSE SUPERTEST and use npm START/NODEMON to run it 
