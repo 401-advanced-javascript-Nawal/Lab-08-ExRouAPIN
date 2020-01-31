@@ -7,7 +7,7 @@ const mockRequest = supergoose(server);
 describe('categories API', () => {
 
   it('can get() a categories', () => {
-    let obj = { name: 'bags bags' };
+    let obj = { name: 'bags bags' ,display_name :'bags',description:'about bags'};
     return mockRequest.post('/api/v1/categories')
       .send(obj)
       .then(data => {
@@ -22,7 +22,7 @@ describe('categories API', () => {
 
 
   it('can post() a new categories', () => {
-    let obj = { name: 'bags bags' };
+    let obj = { name: 'bags bags' ,display_name :'bags',description:'about bags'};
     return mockRequest.post('/api/v1/categories')
       .send(obj)
       .then(data => {

@@ -9,8 +9,8 @@ const router = express.Router();
 // Define our routes
 router.get('/categories', getCat);
 router.post('/categories', postCat);
-router.put('/categories/id', putCat);
-router.delete('/categories/id', deleteCat);
+router.put('/categories/:id', putCat);
+router.delete('/categories/:id', deleteCat);
 
 
 function getCat(req, res, next) {
@@ -29,7 +29,7 @@ function postCat(req, res, next) {
     .catch(next);
 }
 function putCat(req, res, next) {
-  category.update(req.body)
+  category.update(req.params.id,req.body)
     .then(data => {
       res.status(200).json(data);
     })
@@ -37,7 +37,7 @@ function putCat(req, res, next) {
 }
 
 function deleteCat(req, res, next) {
-  category.delete(req.body)
+  category.delete(req.params.id)
     .then(data => {
       res.status(200).json(data);
     })
