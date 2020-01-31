@@ -1,28 +1,32 @@
-// 'use strict';
+'use strict';
 
-// const supergoose = require('@code-fellows/supergoose');
 
-// const category = require(`../models/categories-mod/categories-model.js`);
+const { server } = require('../lib/server.js');
+const supergoose = require('@code-fellows/supergoose');
+const mockRequest = supergoose(server);
 
-// let testObject = {name :'bags bags'};
 
-// describe('categories Model', () => {
-//   it('can create() a new categories', () => {
-//     return category.create(testObject)
-//       .then(record => {
-//         Object.keys(testObject).forEach(key => {
-//           expect(record[key]).toEqual(testObject[key]);
-//         });
-//       });
-//   });
+let testObject = {name :'bags bags'};
 
-//   it('can get() categories', () => {
-//     return category.get()
-//       .then(foundObject => {
-//         Object.keys(testObject).forEach(key => {
-//           expect(foundObject[0][key]).toEqual(testObject[key]);
-//         });
-//       });
-//   });
+describe('categories Model', () => {
 
-// });
+  it('post a new categorie item', () => {
+    return mockRequest.post('/api/v1/categories')
+      .send(testObject)
+      .then(data => {
+        let record = data.body;
+        Object.keys(testObject).forEach(key => {
+          expect(record[key]).toEqual(testObject[key]);
+        });
+      });
+  });
+
+  it('Get items ', () => {
+    return mockRequest.get('/api/v1/categories')
+      .then(data => {
+        expect(data.status).toBe(200);
+        expect(typeof data.body).toBe('object');
+      });
+  });
+
+});

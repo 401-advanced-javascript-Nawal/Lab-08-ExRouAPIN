@@ -35,4 +35,4 @@ describe('categories API', () => {
 
 
 
-});
+}); // end of categories test 
