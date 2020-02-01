@@ -2,7 +2,9 @@
 
 const express = require('express');
 
-const product = require('../models/products-mod/products-model.js');
+const Products = require('../models/products-mod/products-model.js');
+
+const product = new Products();
 
 const router = express.Router();
 

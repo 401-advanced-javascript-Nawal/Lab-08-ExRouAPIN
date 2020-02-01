@@ -2,7 +2,9 @@
 
 const express = require('express');
 
-const category = require('../models/categories-mod/categories-model.js');
+const Categories = require('../models/categories-mod/categories-model.js');
+
+const category = new Categories();
 
 const router = express.Router();
 
@@ -16,6 +18,7 @@ router.delete('/categories/:id', deleteCat);
 function getCat(req, res, next) {
   category.get()
     .then(data => {
+      console.log('data : ', data);
       res.status(200).json(data);
     })
     .catch(next);
