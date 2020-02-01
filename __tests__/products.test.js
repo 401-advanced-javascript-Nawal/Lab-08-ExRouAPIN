@@ -1,66 +1,82 @@
 'use strict';
 
-require('@code-fellows/supergoose');
+const Products = require('../models/products/products.js');
+let products = new Products();
 
-const Products = require('../models/products-mod/products-model.js');
+// const supergoose = require('./supergoose');
 
-const product = new Products();
+describe('Products Model (Modular)', () => {
 
-describe(' Products Testing ', () => {
-
-  it(' can get() any product ', () => {
-    let newRec = { price: 14 , weight:47 ,quantity_in_stock :10 };
-
-    return product.create(newRec)
+  it('can create() a new product', () => {
+    let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
+     products.post(obj)
       .then(record => {
-        return product.get(record._id)
-          .then(proItem => {
-            Object.keys(newRec).forEach(key => {
-              expect(proItem[key]).toEqual(newRec[key]);
-            }); // end of forEach 
-          }); // end of then promise (proItem)
-      }) // end of then promise (record)
-      .catch(e => console.error('ERR', e));
-  }); // end of it  get ()
+          console.log('recorrrrrrrrrrrrrrrrrd', record);
+        Object.keys(obj).forEach(key => {
+            console.log('keeeeey',key);
+          expect(record[key]).toEqual(obj[key]);
+        });
+      });
+  });
 
-
-  it(' can create() A new product ', () => {
-    let newRec = { price: 14 , weight:47 ,quantity_in_stock :10 };
-    return product.create(newRec)
+  it('can get() a product', () => {
+    let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
+     products.post(obj)
       .then(record => {
-        Object.keys(newRec).forEach(key => {
-          expect(record[key]).toEqual(newRec[key]);
-        }); // end of forEach 
-      }) // end of then promise (record)
-      .catch(e => console.error('ERR', e));
-  }); // end of it  create ()
+        // console.log(record);
+         products.get(record._id)
+          .then(product => {
+            console.log(product);
+            Object.keys(obj).forEach(key => {
+              expect(product[key]).toEqual(obj[key]);
+            });
+          });
+      });
+  });
 
-  it(' can update() A product ', () => {
-    let newRec = { price: 14 , weight:47 ,quantity_in_stock :10 };
-    return product.create(newRec)
+  it('can update() a product', () => {
+    let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
+     products.post(obj)
       .then(record => {
-        return product.update(record._id, record)
-          .then(proItem => {
-            Object.keys(newRec).forEach(key => {
-              expect(proItem[key]).toEqual(newRec[key]);
-            }); // end of forEach 
-          }); // nd of then promise (proItem)
-      }) // end of then promise (record)
-      .catch(e => console.error('ERR', e));
-  }); // end of it update ()
+        // console.log(record);
+         products.get(record._id)
+          .then(product => {
+            console.log(product);
+            Object.keys(obj).forEach(key => {
+              expect(product[key]).toEqual(obj[key]);
+            });
+          });
+      });
+  });
 
-  it(' can Delete() A product ', () => {
-    let newRec = { price: 14 , weight:47 ,quantity_in_stock :10 };
-    return product.create(newRec)
+  it('can get() all product', () => {
+    let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
+     products.post(obj)
       .then(record => {
-        return product.delete(record._id, record)
-          .then(proItem => {
-            Object.keys(newRec).forEach(key => {
-              expect(proItem[key]).toEqual(newRec[key]);
-            }); // end of forEach 
-          }); // nd of then promise (proItem)
-      }) // end of then promise (record)
-      .catch(e => console.error('ERR', e));
-  }); // end of it Delete ()
+        // console.log(record);
+         products.get(record._id)
+          .then(product => {
+            console.log(product);
+            Object.keys(obj).forEach(key => {
+              expect(product[key]).toEqual(obj[key]);
+            });
+          });
+      });
+  });
 
-}); // end of Categories 
+  it('can delete() a product', () => {
+    let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
+     products.post(obj)
+      .then(record => {
+        // console.log(record);
+         products.get(record._id)
+          .then(product => {
+            console.log(product);
+            Object.keys(obj).forEach(key => {
+              expect(product[key]).toEqual(obj[key]);
+            });
+          });
+      });
+  });
+
+});
