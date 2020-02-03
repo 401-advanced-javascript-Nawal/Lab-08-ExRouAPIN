@@ -1,6 +1,6 @@
 'use strict';
 
-const Products = require('../models/products/products.js');
+const Products = require('../models/products-mod/products-model.js');
 let products = new Products();
 
 // const supergoose = require('./supergoose');
@@ -9,7 +9,7 @@ describe('Products Model (Modular)', () => {
 
   it('can create() a new product', () => {
     let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
-    products.post(obj)
+    products.create(obj)
       .then(record => {
         console.log('recorrrrrrrrrrrrrrrrrd', record);
         Object.keys(obj).forEach(key => {
@@ -21,7 +21,7 @@ describe('Products Model (Modular)', () => {
 
   it('can get() a product', () => {
     let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
-    products.post(obj)
+    products.create(obj)
       .then(record => {
         // console.log(record);
         products.get(record._id)
@@ -36,7 +36,7 @@ describe('Products Model (Modular)', () => {
 
   it('can update() a product', () => {
     let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
-    products.post(obj)
+    products.create(obj)
       .then(record => {
         // console.log(record);
         products.get(record._id)
@@ -51,10 +51,10 @@ describe('Products Model (Modular)', () => {
 
   it('can get() all product', () => {
     let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
-    products.post(obj)
+    products.create(obj)
       .then(record => {
         // console.log(record);
-        products.get(record._id)
+        products.update(record._id)
           .then(product => {
             console.log(product);
             Object.keys(obj).forEach(key => {
@@ -66,10 +66,10 @@ describe('Products Model (Modular)', () => {
 
   it('can delete() a product', () => {
     let obj = { name: 'rose', price: 25,quantity_in_stock:10 };
-    products.post(obj)
+    products.create(obj)
       .then(record => {
         // console.log(record);
-        products.get(record._id)
+        products.delete(record._id)
           .then(product => {
             console.log(product);
             Object.keys(obj).forEach(key => {
