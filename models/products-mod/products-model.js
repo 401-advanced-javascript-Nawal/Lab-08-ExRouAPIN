@@ -9,5 +9,4 @@ class Products extends Model {
   }
 }
 
-
 module.exports =  Products;

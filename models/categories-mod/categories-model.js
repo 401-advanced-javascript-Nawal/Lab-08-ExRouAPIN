@@ -9,5 +9,4 @@ class Categories extends Model {
   }
 }
 
-
 module.exports =  Categories;

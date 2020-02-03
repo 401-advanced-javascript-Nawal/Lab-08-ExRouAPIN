@@ -8,9 +8,9 @@ const mongoose = require('mongoose');
 
 // const Products = require('./models/products-schema.js');
 
-// const MONGOOSE_URI = 'mongodb://localhost:27017/class08';
+const MONGOOSE_URI = 'mongodb://localhost:27017/class08';
 
-mongoose.connect(process.env.MONGOOSE_URI, { useNewUrlParser: true, useCreateIndex:true,useUnifiedTopology:true });
+mongoose.connect(MONGOOSE_URI, { useNewUrlParser: true, useCreateIndex:true,useUnifiedTopology:true });
 
 // for testing 
 // const bag = new Categories({name :'bags bags'});
